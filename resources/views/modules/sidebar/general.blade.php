@@ -22,6 +22,22 @@
             <a class="dropdown-item" href="blank.html">Blank Page</a>
         </div>
     </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-users-cog"></i>
+            <span>ACL</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <h6 class="dropdown-header">Auth:</h6>
+            <a class="dropdown-item" href="{{route('dashboard.users.index')}}">Users</a>
+            <a class="dropdown-item" href="#">Customers</a>
+            <a class="dropdown-item" href="#">Leads</a>
+            <div class="dropdown-divider"></div>
+            <h6 class="dropdown-header">More:</h6>
+            <a class="dropdown-item" href="{{route('dashboard.roles.index')}}">Role</a>
+            <a class="dropdown-item" href="{{route('dashboard.permissions.index')}}">Permission</a>
+        </div>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>

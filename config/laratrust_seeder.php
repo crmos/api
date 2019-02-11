@@ -20,9 +20,6 @@ return [
             'chat' => 'r,u,d',
             'calendar' => 'c,r,u,d'
 
-
-
-
         ],
     ],
     'permission_structure' => [

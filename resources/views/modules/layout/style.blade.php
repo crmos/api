@@ -10,3 +10,6 @@
 
 <!-- Custom styles for this template-->
 <link href="{{asset('assets/css/sb-admin.css')}}" rel="stylesheet">
+
+<!-- Select2 -->
+<link href="{{asset('assets/vendor/select2/dist/css/select2.css')}}" rel="stylesheet">

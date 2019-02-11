@@ -6,7 +6,7 @@
  * Time: 5:29 PM
  */
 
-Route::group(['namespace' => 'Authentication'], function () {
+Route::group(['namespace' => 'Acl'], function () {
 
     Route::resource('permissions', 'PermissionController', [
         'names' => [

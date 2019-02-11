@@ -22,5 +22,5 @@ require 'general/auth.php';
 //Admin Route File
 Route::group(['middleware' => 'auth'], function () {
     require 'general/basic.php';
-    //require 'admin/auth.php';
+    require 'acl/auth.php';
 });

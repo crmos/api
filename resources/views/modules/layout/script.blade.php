@@ -13,9 +13,10 @@
 <!-- Custom scripts for all pages-->
 <script src="{{asset('assets/js/sb-admin.min.js')}}"></script>
 
-<!-- Demo scripts for this page-->
-<script src="{{asset('assets/js/demo/datatables-demo.js')}}"></script>
-<script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
+<!-- Select2 -->
+<script src="{{asset('assets/vendor/select2/dist/js/select2.min.js')}}"></script>
+
+
 
 
 <script>
@@ -31,5 +32,13 @@
         });
     }
 
+    /**
+     * Initiate select2
+     */
+    function callSelect2(){
+        $('.select2').select2();
+    }
+
     callAjaxCsrfToken();
+    callSelect2();
 </script>
