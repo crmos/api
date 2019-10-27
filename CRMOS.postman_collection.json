@@ -1,0 +1,1019 @@
+{
+	"info": {
+		"_postman_id": "32561836-9ae0-475b-ac54-3fccf37c7548",
+		"name": "CRMOS",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Cookie Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "943cb086-dcf3-43e5-b685-f7d4648455ca",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"grant_type\": \"password\",\n    \"client_id\": \"{{passportID}}\",\n    \"client_secret\": \"{{passportSecret}}\",\n    \"username\": \"{{username}}\",\n    \"password\": \"{{password}}\",\n    \"scope\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Reset Link",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "943cb086-dcf3-43e5-b685-f7d4648455ca",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@email.com\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/auth/password/email",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"password",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "943cb086-dcf3-43e5-b685-f7d4648455ca",
+								"exec": [
+									"// tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"// var jsonData = JSON.parse(responseBody);",
+									"// postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"4b70a7d55bb61e7d07c3be5fa9ae64c178a7a5834864da2b50e1d192399e498f\",\n    \"email\": \"admin@email.com\",\n    \"password\": \"novaSenha\",\n    \"password_confirmation\": \"novaSenha\"\n} "
+						},
+						"url": {
+							"raw": "{{url}}/auth/password/reset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user info",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make email verified",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/email/verify/{{currentOwner}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"email",
+								"verify",
+								"{{currentOwner}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend email verification link",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/auth/email/resend",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"email",
+								"resend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cookie Logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "List Roles",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Permissions",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Role",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4515b4e8-daa9-4c68-a1c8-c9c1f05551c3",
+								"exec": [
+									"// Insert the required role ID below",
+									"// postman.setEnvironmentVariable(\"currentRoleId\", 5);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a18cd86-0599-4e77-9343-893ce15f4267",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/roles/{{currentRoleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"{{currentRoleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleete Role",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77116144-93fd-4bc1-b673-4d3f43ede9d4",
+								"exec": [
+									"// Insert the required role ID below",
+									"// postman.setEnvironmentVariable(\"currentRoleId\", 24);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/roles/{{currentRoleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"{{currentRoleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c33152b-8003-47da-917f-5c4e6b8fa22f",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"currentRoleId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"outro\",\n\t\"description\": \"Outra coisa\",\n\t\"type\": \"permissive\",\n\t\"permissions\": [1, 2, 3]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c33152b-8003-47da-917f-5c4e6b8fa22f",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"currentRoleId\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7dca0798-ed92-4ba0-8fc3-d65bd7ad5244",
+								"exec": [
+									"// Insert the required role ID below",
+									"// postman.setEnvironmentVariable(\"currentRoleId\", 24);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"manager\",\n\t\"description\": \"Gerente\",\n\t\"type\": \"permissive\",\n\t\"permissions\": [2, 3]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/roles/{{currentRoleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"{{currentRoleId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get single user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/{{currentUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{currentUser}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single user Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/{{currentUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{currentUser}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3be1b782-0901-46ab-9b41-b4168162d85e",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"currentUser\", jsonData.uuid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Usuário Postman\",\n\t\"email\": \"postman33ew2@email.com\",\n\t\"password\": \"senha.123\",\n\t\"password_confirmation\": \"senha.123\",\n\t\"roles\": [1, 2]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3be1b782-0901-46ab-9b41-b4168162d85e",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"currentUser\", jsonData.uuid);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Postman User\",\n\t\"roles\": [1]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/{{currentUser}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"{{currentUser}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users?page[number]=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page[number]",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "Get single contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/owners/{{currentOwner}}/contacts/{{currentContact}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners",
+								"{{currentOwner}}",
+								"contacts",
+								"{{currentContact}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Renter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/owners/{{currentOwner}}/contacts/{{currentContact}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners",
+								"{{currentOwner}}",
+								"contacts",
+								"{{currentContact}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3be1b782-0901-46ab-9b41-b4168162d85e",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"currentContact\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"main\",\n\t\"type\": \"common\",\n\t\"addresses\": [\n\t\t{\n\t\t\t\"description\": \"Residencia\",\n\t\t\t\"street\": \"Rua da Casa\",\n\t\t\t\"number\": \"23\",\n\t\t\t\"complement\": \"Apt 234, Bloco C\",\n\t\t\t\"neighborhood\": \"Nome do Bairro\",\n\t\t\t\"city\": \"Cidade da Pessoa\",\n\t\t\t\"zip\": \"12312432\",\n\t\t\t\"county\": \"Região\",\n\t\t\t\"state\": \"SP\",\n\t\t\t\"country\": \"Brazil\"\n\t\t}\n\t],\n\t\"phones\": [\n\t\t{\n\t\t\t\"country_code\": \"+55\",\n\t\t\t\"area_code\": \"12\",\n\t\t\t\"number\": \"923242354\",\n\t\t\t\"type\": \"Cell\",\n\t\t\t\"description\": \"Telefone pessoal\"\n\t\t}\n\t],\n\t\"emails\": [\n\t\t{\n\t\t\t\"description\": \"Email Principal\",\n\t\t\t\"address\": \"renter@myemail.com\",\n\t\t\t\"type\": \"personal\",\n\t\t\t\"provider\": \"myemail.com\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/owners/{{currentOwner}}/contacts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners",
+								"{{currentOwner}}",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3be1b782-0901-46ab-9b41-b4168162d85e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"main_edit\",\n\t\"addresses\": [\n\t\t{\n\t\t\t\"description\": \"Comercial\",\n\t\t\t\"street\": \"Rua da Casa\",\n\t\t\t\"number\": \"23\",\n\t\t\t\"complement\": \"Apt 234, Bloco C\",\n\t\t\t\"neighborhood\": \"Nome do Bairro\",\n\t\t\t\"city\": \"Cidade da Pessoa\",\n\t\t\t\"zip\": \"12312432\",\n\t\t\t\"county\": \"Região\",\n\t\t\t\"state\": \"SP\",\n\t\t\t\"country\": \"Brazil\"\n\t\t}\n\t],\n\t\"phones\": [\n\t\t{\n\t\t\t\"country_code\": \"+55\",\n\t\t\t\"area_code\": \"12\",\n\t\t\t\"number\": \"923242354\",\n\t\t\t\"type\": \"Cell\",\n\t\t\t\"description\": \"Telefone pessoal\"\n\t\t},\n\t\t{\n\t\t\t\"country_code\": \"+55\",\n\t\t\t\"area_code\": \"12\",\n\t\t\t\"number\": \"234243434\",\n\t\t\t\"type\": \"Phone\",\n\t\t\t\"description\": \"Telefone residencia\"\n\t\t}\n\t],\n\t\"emails\": []\n}"
+						},
+						"url": {
+							"raw": "{{url}}/owners/{{currentOwner}}/contacts/{{currentContact}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners",
+								"{{currentOwner}}",
+								"contacts",
+								"{{currentContact}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get contacts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/owners/{{currentOwner}}/contacts?page[number]=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"owners",
+								"{{currentOwner}}",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "page[number]",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c1cbe9df-a3c3-49b2-9486-df21eba7bd38",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c51a1d44-c0e1-45d0-84b3-7dc4c2482baf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "163a369a-c7e7-4e61-bd4b-a218ca2219f5",
+			"key": "token",
+			"value": "xxxxx",
+			"type": "string"
+		},
+		{
+			"id": "aa4eb3e1-1135-4b5b-b5d9-b4e43c557841",
+			"key": "url",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"id": "155fbdbd-24ae-49d0-9c3f-4f334383f09a",
+			"key": "userName",
+			"value": "admin@email.com",
+			"type": "string"
+		},
+		{
+			"id": "31451aeb-4a4e-4371-82ec-228da0f405e1",
+			"key": "userPassword",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"id": "bdd9c899-7111-4e8c-b526-6d41084a51ec",
+			"key": "passportID",
+			"value": "2",
+			"type": "string"
+		},
+		{
+			"id": "0d906bea-d16f-4303-bc41-815327898e86",
+			"key": "passportSecret",
+			"value": "tF4tBOHUK8ULRHGhZaAAGQHIiuLs6hX68LNxXo0v",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

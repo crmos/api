@@ -1,0 +1,29 @@
+{
+    "name": "crmos/acl",
+    "description": "A superset of the amazing spatie/laravel-permission package",
+    "authors": [
+        {
+            "name": "Marcelo Barros da Silva",
+            "email": "maxcelos@outlook.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "spatie/laravel-permission": "^3.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Crmos\\Acl\\Providers\\AclServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Crmos\\Acl\\": ""
+        }
+    }
+}

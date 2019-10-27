@@ -1,3 +1,6 @@
 {
-    "Foundation": true
+    "Foundation": true,
+    "Acl": true,
+    "People": true,
+    "Contacts": true
 }
