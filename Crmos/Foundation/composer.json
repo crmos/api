@@ -1,0 +1,25 @@
+{
+    "name": "crmos/foundation",
+    "description": "",
+    "authors": [
+        {
+            "name": "CRM Open Source Team",
+            "email": "crmos@outlook.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Crmos\\Foundation\\Providers\\FoundationServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Crmos\\Foundation\\": ""
+        }
+    }
+}

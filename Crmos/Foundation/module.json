@@ -1,0 +1,13 @@
+{
+    "name": "Foundation",
+    "alias": "foundation",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Crmos\\Foundation\\Providers\\FoundationServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
