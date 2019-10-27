@@ -30,6 +30,6 @@ class AlterRolesTable extends Migration
      */
     public function down()
     {
-        //
+        // Noting to do
     }
 }

@@ -25,6 +25,6 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'marital_status' => $faker->randomElement(['single', 'married', 'separated', 'divorced', 'widowed']),
         'birthday' => $faker->date('Y-m-d', '2000-12-20'),
-        'profession' => $faker->word
+        'profession' => $faker->word,
     ];
 });

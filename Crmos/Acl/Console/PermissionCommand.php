@@ -60,7 +60,6 @@ class PermissionCommand extends Command
 
     /**
      * Count the number of unique permissions
-     *
      */
     private function countPermissions($permissions, $default)
     {
@@ -73,7 +72,7 @@ class PermissionCommand extends Command
             } elseif (isset($permission['actions'])) {
                 $count += count($permission['actions']);
 
-                if (!isset($permission['strict']) || $permission['strict'] == false) {
+                if (! isset($permission['strict']) || $permission['strict'] == false) {
                     $count += $default;
                 }
             }
@@ -103,7 +102,7 @@ class PermissionCommand extends Command
 
             foreach ($actions as $action) {
                 $stored[] = Permission::firstOrCreate([
-                    'name' => $name . '_' . $action
+                    'name' => $name . '_' . $action,
                 ])->name;
 
                 $bar->advance();
@@ -145,6 +144,5 @@ class PermissionCommand extends Command
         } else {
             $this->error(' No admin found ');
         }
-
     }
 }

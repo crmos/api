@@ -15,7 +15,7 @@ class AclServiceProvider extends ServiceProvider
 {
 
     protected $policies = [
-        RoleModel::class => RolePolicy::class
+        RoleModel::class => RolePolicy::class,
     ];
     /**
      * Boot the application events.
@@ -79,8 +79,8 @@ class AclServiceProvider extends ServiceProvider
         $sourcePath = __DIR__.'/../Resources/views';
 
         $this->publishes([
-            $sourcePath => $viewPath
-        ],'views');
+            $sourcePath => $viewPath,
+        ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/acl';

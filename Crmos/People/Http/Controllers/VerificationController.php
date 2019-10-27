@@ -37,24 +37,25 @@ class VerificationController extends Controller
 
     /**
      * Show the email verification notice.
-     *
      */
     public function show()
     {
-        //
+        // Nothing to do
     }
 
     /**
      * Mark the authenticated user's email address as verified.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
+     *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function verify(Request $request)
     {
         if ($request->route('uuid') != $request->user()->uuid) {
-            throw new AuthorizationException;
+            throw new AuthorizationException();
         }
 
         if ($request->user()->hasVerifiedEmail()) {
@@ -72,6 +73,7 @@ class VerificationController extends Controller
      * Resend the email verification notification.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function resend(Request $request)

@@ -36,7 +36,7 @@ class UserPolicy
 
     public function delete(User $user, User $register)
     {
-        return $user->can('user_destroy');
+        return $user->can('user_destroy') || $user->id == $register->id;
     }
 
 }

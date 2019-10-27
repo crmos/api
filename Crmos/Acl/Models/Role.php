@@ -12,7 +12,7 @@ class Role extends SpatieRole
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-        'name', 'description', 'type', 'guard_name'
+        'name', 'description', 'type', 'guard_name',
     ];
 
     protected $hidden = ['guard_name'];

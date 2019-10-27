@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,10 +13,10 @@ use Illuminate\Http\Request;
 
 Route::group([
     'middleware' => 'auth:api',
-    'prefix' => ''
+    'prefix' => '',
 ], function () {
     Route::apiResource('roles', 'RoleController', [
-        'as' => 'crmos'
+        'as' => 'crmos',
     ]);
 
     Route::get('permissions', function () {

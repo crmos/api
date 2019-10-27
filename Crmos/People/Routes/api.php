@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +17,7 @@ Route::post('logout', 'AuthController@revokeToken')->middleware('auth:api')->nam
 
 Route::group([
     'middleware' => 'auth:api',
-    'prefix' => ''
+    'prefix' => '',
 ], function () {
     Route::apiResource('users', 'UserController', ['as' => 'crmos']);
     Route::get('user', 'UserController@loggedUser')->name('crmos.user');
@@ -28,7 +26,7 @@ Route::group([
 
 Route::group([
     'middleware' => 'api', // No authentication
-    'prefix' => 'auth'
+    'prefix' => 'auth',
 ], function () {
 
     Route::get('email/verify', 'VerificationController@show')->name('verification.notice');

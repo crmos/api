@@ -24,18 +24,18 @@ class User extends Authenticatable implements MustVerifyEmail
         HasLegalDocument;
 
     protected $fillable = [
-        'name', 'email', 'password', 'birthday', 'marital_status', 'profession'
+        'name', 'email', 'password', 'birthday', 'marital_status', 'profession',
     ];
 
     protected $dates = ['deleted_at'];
 
     protected $hidden = [
-        'password', 'remember_token', 'id'
+        'password', 'remember_token', 'id',
     ];
 
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'uuid' => 'uuid'
+        'uuid' => 'uuid',
     ];
 
     public function setPasswordAttribute($value)
@@ -45,7 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new VerifyEmail);
+        $this->notify(new VerifyEmail());
     }
 
     public function sendPasswordResetNotification($token)

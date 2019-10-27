@@ -97,7 +97,7 @@ class ContactService
             $contactable = $contactable->find($id);
         }
 
-        if (!$contactable) {
+        if (! $contactable) {
             abort(404);
         }
 

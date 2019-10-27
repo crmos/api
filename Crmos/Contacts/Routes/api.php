@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +15,6 @@ Route::group([
     'middleware' => 'auth:api',
 ], function () {
     Route::apiResource('{contactableType}/{contactableId}/contacts', 'ContactController', [
-        'as' => 'crmos'
+        'as' => 'crmos',
     ]);
 });

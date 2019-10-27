@@ -14,12 +14,15 @@ use Crmos\People\Policies\UserPolicy;
 class PeopleServiceProvider extends ServiceProvider
 {
     protected $policies = [
-        User::class => UserPolicy::class
+        User::class => UserPolicy::class,
     ];
+
     /**
      * Boot the application events.
      *
      * @return void
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function boot()
     {
@@ -85,8 +88,8 @@ class PeopleServiceProvider extends ServiceProvider
         $sourcePath = __DIR__.'/../Resources/views';
 
         $this->publishes([
-            $sourcePath => $viewPath
-        ],'views');
+            $sourcePath => $viewPath,
+        ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/people';

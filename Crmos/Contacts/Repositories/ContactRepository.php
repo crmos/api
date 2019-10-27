@@ -38,7 +38,7 @@ class ContactRepository implements ContactInterface
         $this->contact = Contact::query()->where([
             'contactable_type' => get_class($contactable),
             'contactable_id' => $contactable->getKey(),
-            'id' => $id
+            'id' => $id,
         ])->first();
 
         if (! $this->contact instanceof Contact) {
@@ -53,10 +53,10 @@ class ContactRepository implements ContactInterface
         $this->contact = Contact::query()->where([
             'contactable_type' => get_class($contactable),
             'contactable_id' => $contactable->getKey(),
-            'id' => $id
+            'id' => $id,
         ])->first();
 
-        if (!$this->contact) {
+        if (! $this->contact) {
             abort(404);
         }
 
@@ -69,7 +69,7 @@ class ContactRepository implements ContactInterface
     {
         return Contact::query()->where([
             'contactable_type' => get_class($contactable),
-            'contactable_id' => $contactable->getKey()
+            'contactable_id' => $contactable->getKey(),
         ])->with('emails', 'phones', 'addresses')->get();
     }
 

@@ -11,6 +11,7 @@
         "dyrynda/laravel-efficient-uuid": "^3.0",
         "dyrynda/laravel-model-uuid": "^5.0",
         "laravel/passport": "^7.5",
+        "nunomaduro/phpinsights": "^1.9",
         "spatie/laravel-collection-macros": "^6.0",
         "spatie/laravel-cors": "^1.6",
         "spatie/laravel-json-api-paginate": "^1.6"

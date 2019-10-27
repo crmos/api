@@ -3,10 +3,7 @@
 namespace Crmos\People\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
 use Illuminate\Auth\Notifications\ResetPassword as BaseResetPassword;
 
 class ResetPassword extends BaseResetPassword
@@ -15,6 +12,7 @@ class ResetPassword extends BaseResetPassword
      * Build the mail representation of the notification.
      *
      * @param  mixed  $notifiable
+     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -23,7 +21,7 @@ class ResetPassword extends BaseResetPassword
             return call_user_func(static::$toMailCallback, $notifiable, $this->token);
         }
 
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject(Lang::get('Reset Password Notification'))
             ->line(Lang::get('You are receiving this email because we received a password reset request for your account.'))
             ->action(Lang::get('Reset Password'), $this->resetUrl() . '?token=' . $this->token . '&email=' . $notifiable->getEmailForPasswordReset()) // url(trim(config('foundation.frontend.url'), '/').route('password.reset', ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()], false)))

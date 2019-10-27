@@ -9,6 +9,6 @@ $factory->define(\Crmos\Foundation\Models\LegalDocument::class, function (Faker 
         'number' => $faker->numerify(),
         'dispatcher' => $faker->word,
         'state' => $faker->word,
-        'country' => $faker->country
+        'country' => $faker->country,
     ];
 });

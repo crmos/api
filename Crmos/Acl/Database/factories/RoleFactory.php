@@ -12,6 +12,6 @@ $factory->define(Role::class, function (Faker $faker) {
         'name' => $faker->slug,
         'description' => $faker->name,
         'type' => $faker->randomElement(['permissive', 'prohibitive']),
-        'permissions' => $faker->randomElements($permissions, 3)
+        'permissions' => $faker->randomElements($permissions, 3),
     ];
 });

@@ -10,7 +10,7 @@ class LegalDocument extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'description', 'number', 'dispatcher', 'state', 'country', 'entity_type', 'entity_id'
+        'description', 'number', 'dispatcher', 'state', 'country', 'entity_type', 'entity_id',
     ];
 
     public function hasLegalDocument()

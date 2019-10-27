@@ -17,7 +17,7 @@ class AuthController extends AccessTokenController
         // Generates access token
         $access = $this->withErrorHandling(function () use ($request) {
             $this->cookie = $this->convertResponse(
-                $this->server->respondToAccessTokenRequest($request, new Psr7Response)
+                $this->server->respondToAccessTokenRequest($request, new Psr7Response())
             );
 
             return $this->cookie;
@@ -26,12 +26,11 @@ class AuthController extends AccessTokenController
         // Get access token if login was successfully
         $token = optional(json_decode(optional($this->cookie)->content()))->access_token;
 
-        // Set token into cookies
-        $access->cookie('laravel_token', $token);
-
-        // Clean response content to protect the token
-        if ($token)
+        // Clean response content to protect the token and Set token into cookies
+        if ($token) {
+            $access->cookie('laravel_token', $token);
             $access->setContent('{"message": "success"}');
+        }
 
         return $access;
     }

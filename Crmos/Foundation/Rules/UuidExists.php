@@ -15,13 +15,15 @@ class UuidExists implements Rule
      */
     public function __construct($modelClass)
     {
-        $this->model = new $modelClass;
+        $this->model = new $modelClass();
     }
     /**
      * Determine if the validation rule passes.
      *
      * @param  string  $attribute
+     *
      * @param  mixed  $value
+     *
      * @return bool
      */
     public function passes($attribute, $value)

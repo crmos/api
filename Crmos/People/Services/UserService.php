@@ -18,7 +18,6 @@ class UserService extends Service
     {
         DB::beginTransaction();
 
-        // dd($data);
         $user = $this->repo->make($data)->toModel();
 
         if (isset($data['roles']))
