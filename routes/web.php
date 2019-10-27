@@ -14,13 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-//General Route
-require 'general/auth.php';
-
-
-//Admin Route File
-Route::group(['middleware' => 'auth'], function () {
-    require 'general/basic.php';
-    require 'acl/auth.php';
-});
