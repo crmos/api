@@ -42,9 +42,7 @@ return [
     */
 
     'exclude' => [
-        '../app/',
-        '../bootstrap/',
-        '../database/',
+        'app'
     ],
 
     'add' => [
@@ -67,6 +65,18 @@ return [
         ForbiddenPrivateMethods::class => [
             'title' => 'The usage of private methods is not idiomatic in Laravel.',
         ],
+        \PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff::class => [
+            'lineLimit' => 150,
+            'absoluteLineLimit' => 160
+        ],
+        \ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff::class => [
+            'maxCount' => 12,
+        ],
+        \ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff::class => [
+            'maxLength' => 40,
+        ]
     ],
+
+    'ide' => 'phpstorm',
 
 ];
