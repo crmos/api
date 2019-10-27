@@ -51,14 +51,10 @@ return [
     'permissions' => [
         'role',
         'post' => [
-            'actions' => ['deactivate', 'publish']
+            'actions' => ['deactivate', 'publish'],
+            'strict' => true,
         ],
         'user',
-        'plan',
-        'owner',
-        'contract',
-        'renter',
-        'asset',
         'contact'
     ],
 ];
