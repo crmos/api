@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Crmos\Acl\Models\Role;
 use Crmos\Acl\Repositories\RoleRepository;
 use Crmos\Acl\Services\RoleService;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 use Tests\TestCase;
 
 class RoleTest extends TestCase

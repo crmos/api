@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Notifications;
+namespace Crmos\Authentication\Notifications;
 
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Lang;

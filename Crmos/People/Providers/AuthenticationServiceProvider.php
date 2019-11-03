@@ -1,17 +1,17 @@
 <?php
 
-namespace Crmos\People\Providers;
+namespace Crmos\Authentication\Providers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Crmos\People\Contracts\User as UserContract;
-use Crmos\People\Models\User;
-use Crmos\People\Repositories\UserRepository;
-use Crmos\People\Policies\UserPolicy;
+use Crmos\Authentication\Contracts\User as UserContract;
+use Crmos\Authentication\Models\User;
+use Crmos\Authentication\Repositories\UserRepository;
+use Crmos\Authentication\Policies\UserPolicy;
 
-class PeopleServiceProvider extends ServiceProvider
+class AuthenticationServiceProvider extends ServiceProvider
 {
     protected $policies = [
         User::class => UserPolicy::class,
@@ -32,7 +32,7 @@ class PeopleServiceProvider extends ServiceProvider
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
-        $this->app->make('router')->aliasMiddleware('auth', \Crmos\People\Http\Middleware\AuthMiddleware::class);
+        $this->app->make('router')->aliasMiddleware('auth', \Crmos\Authentication\Http\Middleware\AuthMiddleware::class);
 
         $this->app->make('router')->middleware(\Spatie\Cors\Cors::class);
 
@@ -69,10 +69,10 @@ class PeopleServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('people.php'),
+            __DIR__.'/../Config/config.php' => config_path('authentication.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'people'
+            __DIR__.'/../Config/config.php', 'authentication'
         );
     }
 
@@ -83,7 +83,7 @@ class PeopleServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/people');
+        $viewPath = resource_path('views/modules/authentication');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -92,8 +92,8 @@ class PeopleServiceProvider extends ServiceProvider
         ], 'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/people';
-        }, \Config::get('view.paths')), [$sourcePath]), 'people');
+            return $path . '/modules/authentication';
+        }, \Config::get('view.paths')), [$sourcePath]), 'authentication');
     }
 
     /**
@@ -103,12 +103,12 @@ class PeopleServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/people');
+        $langPath = resource_path('lang/modules/authentication');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'people');
+            $this->loadTranslationsFrom($langPath, 'authentication');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'people');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'authentication');
         }
     }
 

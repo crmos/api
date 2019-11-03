@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Providers;
+namespace Crmos\Authentication\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $moduleNamespace = 'Crmos\People\Http\Controllers';
+    protected $moduleNamespace = 'Crmos\Authentication\Http\Controllers';
 
     /**
      * Called before routes are registered.

@@ -1,3 +1,3 @@
-# Crmos People Module
+# Crmos Authentication Module
 
 > Missing description

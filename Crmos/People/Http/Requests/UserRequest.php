@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Http\Requests;
+namespace Crmos\Authentication\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

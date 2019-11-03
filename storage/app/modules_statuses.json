@@ -1,6 +1,6 @@
 {
     "Foundation": true,
     "Acl": true,
-    "People": true,
+    "Authentication": true,
     "Contacts": true
 }

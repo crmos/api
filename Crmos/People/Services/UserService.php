@@ -1,11 +1,11 @@
 <?php
 
-namespace Crmos\People\Services;
+namespace Crmos\Authentication\Services;
 
 use Illuminate\Support\Facades\DB;
 use Crmos\Foundation\Services\Service;
-use Crmos\People\Contracts\User as UserRepoContract;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Contracts\User as UserRepoContract;
+use Crmos\Authentication\Models\User;
 
 class UserService extends Service
 {

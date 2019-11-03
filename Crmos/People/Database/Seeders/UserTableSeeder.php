@@ -1,11 +1,11 @@
 <?php
 
-namespace Crmos\People\Database\Seeders;
+namespace Crmos\Authentication\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 
 class UserTableSeeder extends Seeder
 {

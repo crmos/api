@@ -4,7 +4,7 @@ namespace Crmos\Contacts\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Crmos\Contacts\Models\Contact;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 
 class ContactPolicy
 {

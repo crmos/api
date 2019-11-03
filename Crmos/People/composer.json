@@ -1,5 +1,5 @@
 {
-    "name": "crmos/people",
+    "name": "crmos/authentication",
     "description": "",
     "authors": [
         {
@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Crmos\\People\\Providers\\PeopleServiceProvider"
+                "Crmos\\Authentication\\Providers\\AuthenticationServiceProvider"
             ],
             "aliases": {
 
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Innerent\\People\\": ""
+            "Crmos\\Authentication\\": ""
         }
     }
 }

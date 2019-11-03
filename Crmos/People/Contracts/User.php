@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Contracts;
+namespace Crmos\Authentication\Contracts;
 
 use Crmos\Foundation\Contracts\Repository;
 

@@ -12,7 +12,7 @@ return [
      |
      */
     'admin' => [
-        'class' => \Crmos\People\Models\User::class,
+        'class' => \Crmos\Authentication\Models\User::class,
 
         'username_field' => 'email',
 

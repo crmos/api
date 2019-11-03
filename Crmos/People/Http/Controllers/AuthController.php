@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Http\Controllers;
+namespace Crmos\Authentication\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;

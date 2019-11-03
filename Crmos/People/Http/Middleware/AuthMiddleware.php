@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Http\Middleware;
+namespace Crmos\Authentication\Http\Middleware;
 
 use App\Http\Middleware\Authenticate;
 use Closure;

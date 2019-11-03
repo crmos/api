@@ -1,10 +1,10 @@
 <?php
 
-namespace Crmos\People\Tests\Unit;
+namespace Crmos\Authentication\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Crmos\Foundation\Models\LegalDocument;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 use Tests\TestCase;
 
 class UserTest extends TestCase

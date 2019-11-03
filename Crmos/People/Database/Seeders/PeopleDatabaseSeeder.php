@@ -1,11 +1,11 @@
 <?php
 
-namespace Crmos\People\Database\Seeders;
+namespace Crmos\Authentication\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class PeopleDatabaseSeeder extends Seeder
+class AuthenticationDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.

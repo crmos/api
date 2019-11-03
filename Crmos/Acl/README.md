@@ -46,7 +46,7 @@ This user will be updated every time a the migration command is executed, to get
 // acl.php
 
 'admin' => [
-    'class' => \Crmos\People\Models\User::class,
+    'class' => \Crmos\Authentication\Models\User::class,
     
     'username_field' => 'email',
     

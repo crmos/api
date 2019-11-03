@@ -1,10 +1,10 @@
 <?php
 
-namespace Crmos\People\Repositories;
+namespace Crmos\Authentication\Repositories;
 
 use Crmos\Foundation\Repositories\Repository;
-use Crmos\People\Contracts\User as UserRepoContract;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Contracts\User as UserRepoContract;
+use Crmos\Authentication\Models\User;
 
 class UserRepository extends Repository implements UserRepoContract
 {

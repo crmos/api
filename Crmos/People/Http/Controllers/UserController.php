@@ -1,11 +1,11 @@
 <?php
 
-namespace Crmos\People\Http\Controllers;
+namespace Crmos\Authentication\Http\Controllers;
 
 use Nwidart\Modules\Routing\Controller;
-use Crmos\People\Models\User;
-use Crmos\People\Http\Requests\UserRequest;
-use Crmos\People\Services\UserService;
+use Crmos\Authentication\Models\User;
+use Crmos\Authentication\Http\Requests\UserRequest;
+use Crmos\Authentication\Services\UserService;
 
 class UserController extends Controller
 {

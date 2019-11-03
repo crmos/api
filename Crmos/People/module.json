@@ -1,11 +1,11 @@
 {
-    "name": "People",
-    "alias": "people",
+    "name": "Authentication",
+    "alias": "authentication",
     "description": "",
     "keywords": [],
     "order": 3,
     "providers": [
-        "Crmos\\People\\Providers\\PeopleServiceProvider"
+        "Crmos\\Authentication\\Providers\\AuthenticationServiceProvider"
     ],
     "aliases": {},
     "files": [],

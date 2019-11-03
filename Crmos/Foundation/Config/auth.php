@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Crmos\People\Models\User::class,
+            'model' => Crmos\Authentication\Models\User::class,
         ],
 
         // 'users' => [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Notifications;
+namespace Crmos\Authentication\Notifications;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Http\Controllers;
+namespace Crmos\Authentication\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;

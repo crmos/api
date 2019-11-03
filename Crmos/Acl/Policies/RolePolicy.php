@@ -4,7 +4,7 @@ namespace Crmos\Acl\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Crmos\Acl\Models\Role;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 
 class RolePolicy
 {

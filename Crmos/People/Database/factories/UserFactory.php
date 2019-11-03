@@ -1,6 +1,6 @@
 <?php
 
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace Crmos\People\Policies;
+namespace Crmos\Authentication\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Crmos\People\Models\User;
+use Crmos\Authentication\Models\User;
 
 /**
  * Class UserPolicy
  *
- * @package \Crmos\People
+ * @package \Crmos\Authentication
  */
 class UserPolicy
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Crmos\People\Models;
+namespace Crmos\Authentication\Models;
 
 use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Support\Facades\Hash;
@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Crmos\People\Notifications\VerifyEmail;
-use Crmos\People\Notifications\ResetPassword;
+use Crmos\Authentication\Notifications\VerifyEmail;
+use Crmos\Authentication\Notifications\ResetPassword;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
